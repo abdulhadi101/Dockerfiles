@@ -1,7 +1,7 @@
 MAINTAINER Abdulhadi Ahmad
-FROM alpine:latest
-RUN apk update
-RUN apk add openssh
+FROM ubuntu:latest
+RUN apt update
+RUN apt install openssh
 RUN adduser -g "Username" -D abdulhadi && mkdir /home/abdulhadi/.ssh && echo "abdulhadi:abdulhadi" | chpasswd
 ADD authorized_keys /home/student/.ssh
 RUN chown -R abdulhadi.abdulhadi /home/abdulhadi && chmod 700 /home/abdulhadi/.ssh && chmod 600 /home/abdulhadi/.ssh/authorized_keys
